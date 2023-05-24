@@ -43,6 +43,9 @@ function generateCells(){
     
         setCell.addEventListener("click", function(){
             setCell.classList.toggle("selected");
+
+            if (generatedBombs.includes(i))
+                setCell.classList.add("bomb")
     
             console.log(i + 1)
         })
@@ -60,13 +63,14 @@ function generateCells(){
 const playGameButton = document.getElementById("playButton");
 
 playGameButton.addEventListener("click", function(){
-    gridElement.innerHTML = ""
+    gridElement.innerHTML = "";
 
-    gridElement.classList.remove("d-none")
+    gridElement.classList.remove("d-none");
 
     generateCells();
 
-    console.log(generateUniqueNumbers(1, 100, 16));
+    let generatedBombs = generateUniqueNumbers(1, 100, 16);
 
-    
+    console.log(generatedBombs);
+
 })
