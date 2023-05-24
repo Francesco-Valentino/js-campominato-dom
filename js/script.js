@@ -1,13 +1,21 @@
 function createCellElement(tagName, className){
     const cellElement = document.createElement(tagName);
+    
     cellElement.className = className;
+    
     return cellElement;
 }
 
 function createNumberElement(tagName, className, number){
     const numberElement = document.createElement(tagName);
+
+    const myNumbersList = [];
+    
     numberElement.className = className;
+    
     numberElement.innerHTML = number + 1;
+
+
     return numberElement;
 }
 
@@ -36,25 +44,34 @@ const gridElement = document.getElementById("myGrid");
 
 
 function generateCells(){
+    let generatedBombs = generateUniqueNumbers(1, 100, 16);
+
+    console.log(generatedBombs);
+
+    
+
     for (let i = 0; i < 100; i++){
         const setCell = createCellElement("div", "cell");
     
         const setCellNumber = createNumberElement("h2", "cellNumber", i);
 
-        let generatedBombs = generateUniqueNumbers(1, 100, 16);
-    
         setCell.addEventListener("click", function(){
             setCell.classList.toggle("selected");
 
-            if (generatedBombs.includes(i))
-                setCell.classList.add("bomb")
-    
             console.log(i + 1)
         })
     
         gridElement.appendChild(setCell);
     
         setCell.appendChild(setCellNumber);
+
+        
+        if (generatedBombs.includes(parseInt(setCellNumber))){
+            setCell.addEventListener("click", function(){
+                setCell.classList.add("bomb");
+            })
+        }
+        
 
         
     
@@ -75,5 +92,5 @@ playGameButton.addEventListener("click", function(){
 
     generateCells();
 
-    console.log(generatedBombs);
+    
 })
