@@ -40,6 +40,8 @@ function generateCells(){
         const setCell = createCellElement("div", "cell");
     
         const setCellNumber = createNumberElement("h2", "cellNumber", i);
+
+        let generatedBombs = generateUniqueNumbers(1, 100, 16);
     
         setCell.addEventListener("click", function(){
             setCell.classList.toggle("selected");
@@ -53,6 +55,8 @@ function generateCells(){
         gridElement.appendChild(setCell);
     
         setCell.appendChild(setCellNumber);
+
+        
     
         //console.log(i+1);
     
@@ -67,12 +71,9 @@ playGameButton.addEventListener("click", function(){
 
     gridElement.classList.remove("d-none");
 
-    let generatedBombs = generateUniqueNumbers(1, 100, 16);
+    
 
     generateCells();
 
-    
-
     console.log(generatedBombs);
-
 })
