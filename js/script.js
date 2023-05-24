@@ -34,34 +34,39 @@ function generateUniqueNumbers(minNum, maxNum, elements){
 
 const gridElement = document.getElementById("myGrid");
 
-for (let i = 0; i < 100; i++){
-    const setCell = createCellElement("div", "cell");
 
-    const setCellNumber = createNumberElement("h2", "cellNumber", i);
-
-    setCell.addEventListener("click", function(){
-        setCell.classList.toggle("selected");
-
-        console.log(i + 1)
-    })
-
-    gridElement.appendChild(setCell);
-
-    setCell.appendChild(setCellNumber);
-
-    //console.log(i+1);
-
-    //console.log(document.getElementsByClassName("cellNumber"));
-
-    const playGameButton = document.getElementById("playButton");
-
-    playGameButton.addEventListener("click", function(){
-        setCell.classList.remove("selected")
-        
-        gridElement.classList.remove("d-none")
-
-        console.log(generateUniqueNumbers(1, 100, 16));
-    })
+function generateCells(){
+    for (let i = 0; i < 100; i++){
+        const setCell = createCellElement("div", "cell");
+    
+        const setCellNumber = createNumberElement("h2", "cellNumber", i);
+    
+        setCell.addEventListener("click", function(){
+            setCell.classList.toggle("selected");
+    
+            console.log(i + 1)
+        })
+    
+        gridElement.appendChild(setCell);
+    
+        setCell.appendChild(setCellNumber);
+    
+        //console.log(i+1);
+    
+        //console.log(document.getElementsByClassName("cellNumber"));  
+    }
 }
 
+const playGameButton = document.getElementById("playButton");
 
+playGameButton.addEventListener("click", function(){
+    gridElement.classList.remove("d-none")
+
+    generateCells();
+
+    console.log(generateUniqueNumbers(1, 100, 16));
+
+    setCell.classList.remove("selected")
+
+    
+})
