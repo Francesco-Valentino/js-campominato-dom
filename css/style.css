@@ -75,6 +75,10 @@ div.cell{
     background-color: #0063a0;
 }
 
+.bomb{
+    background-color: orangered;
+}
+
 footer{
     height: 50px;
 }
