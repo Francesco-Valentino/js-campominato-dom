@@ -8,6 +8,10 @@
     display: flex;
 }
 
+.d-none{
+    display: none;
+}
+
 .alignItemsCenter{
     align-items: center;
 }

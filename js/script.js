@@ -31,10 +31,13 @@ for (let i = 0; i < 100; i++){
     console.log(i+1);
 
     console.log(document.getElementsByClassName("cellNumber"));
+
+    const playGameButton = document.getElementById("playButton");
+
+    playGameButton.addEventListener("click", function(){
+        setCell.classList.remove("selected")
+        gridElement.classList.remove("d-none")
+    })
 }
 
-const playGameButton = document.getElementById("playButton");
 
-//playGameButton.addEventListener("click", function(){
-    //setCell.classList.remove("selected")
-//})
