@@ -11,6 +11,27 @@ function createNumberElement(tagName, className, number){
     return numberElement;
 }
 
+function generateRandomNumber(minimumNumber, maximumNumber){
+    const randomNumber = Math.floor(Math.random() * (maximumNumber - minimumNumber +1) + minimumNumber);
+    return randomNumber;
+}
+
+function generateUniqueNumbers(minNum, maxNum, elements){
+    let myNumbers = [];
+    if((maxNum - minNum) < elements){
+        return [];
+    }
+    while(myNumbers.length < elements){
+        const randomUniqueNumber = generateRandomNumber(minNum, maxNum);
+        if(!myNumbers.includes(randomUniqueNumber)){
+            myNumbers.push(randomUniqueNumber);
+        }
+    }
+    //console.log(myNumbers);
+    
+    return myNumbers;
+}
+
 const gridElement = document.getElementById("myGrid");
 
 for (let i = 0; i < 100; i++){
@@ -28,15 +49,18 @@ for (let i = 0; i < 100; i++){
 
     setCell.appendChild(setCellNumber);
 
-    console.log(i+1);
+    //console.log(i+1);
 
-    console.log(document.getElementsByClassName("cellNumber"));
+    //console.log(document.getElementsByClassName("cellNumber"));
 
     const playGameButton = document.getElementById("playButton");
 
     playGameButton.addEventListener("click", function(){
         setCell.classList.remove("selected")
+        
         gridElement.classList.remove("d-none")
+
+        console.log(generateUniqueNumbers(1, 100, 16));
     })
 }
 
