@@ -67,9 +67,11 @@ playGameButton.addEventListener("click", function(){
 
     gridElement.classList.remove("d-none");
 
+    let generatedBombs = generateUniqueNumbers(1, 100, 16);
+
     generateCells();
 
-    let generatedBombs = generateUniqueNumbers(1, 100, 16);
+    
 
     console.log(generatedBombs);
 
