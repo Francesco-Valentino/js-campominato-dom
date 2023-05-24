@@ -60,13 +60,13 @@ function generateCells(){
 const playGameButton = document.getElementById("playButton");
 
 playGameButton.addEventListener("click", function(){
+    gridElement.innerHTML = ""
+
     gridElement.classList.remove("d-none")
 
     generateCells();
 
     console.log(generateUniqueNumbers(1, 100, 16));
-
-    setCell.classList.remove("selected")
 
     
 })
